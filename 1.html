@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Project detail 1</title>
+    
+    <style>
+        :root {
+            --neon-purple: #bf00ff;
+            --neon-magenta: #ff00ff;
+            --deep-red: #8b0000;
+            --forest-green: #004d00;
+            --studio-dark: #0a000a;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #300030 0%, var(--studio-dark) 100%);
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Neon Sign Effect */
+        body::before {
+            content: "HELLO";
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            font-size: 8rem;
+            font-weight: 900;
+            color: #ff3366;
+            text-shadow: 0 0 20px #ff3366, 0 0 60px #ff3366;
+            opacity: 0.1;
+            z-index: -1;
+            transform: rotate(-5deg);
+        }
+
+        .container {
+            max-width: 850px;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        h1, h3 {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Section Title Styling */
+        h1 {
+            font-size: 2.2rem;
+            color: var(--neon-magenta);
+            text-shadow: 0 0 10px var(--neon-magenta);
+            border-left: 5px solid var(--neon-magenta);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* THE TRIPLE STACKED BANNER (H2) */
+        .banner-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .banner-top, .banner-bottom {
+            background-color: var(--deep-red);
+            color: white;
+            padding: 10px 40px;
+            width: 280px;
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 900;
+        }
+
+        .banner-middle {
+            background-color: var(--forest-green);
+            color: white;
+            padding: 15px 60px;
+            width: 320px;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #eee;
+            margin-top: 60px;
+            background: linear-gradient(90deg, var(--neon-purple), transparent);
+            padding: 5px 15px;
+            display: inline-block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.03);
+            margin-bottom: 15px;
+            padding: 25px;
+            border-radius: 4px;
+            border: 1px solid rgba(191, 0, 255, 0.15);
+            line-height: 1.6;
+        }
+
+        li strong {
+            color: var(--neon-magenta);
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--neon-purple), transparent);
+            margin: 60px 0;
+        }
+
+        blockquote {
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 4px solid var(--deep-red);
+            border-bottom: 4px solid var(--forest-green);
+            margin: 40px 0;
+            padding: 40px;
+            font-size: 1.4rem;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* 3D Icon Mockups Effect */
+        .icon-hint {
+            color: var(--neon-magenta);
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--neon-magenta);
+        }
+
+        @media (max-width: 768px) {
+            .banner-top, .banner-bottom { width: 200px; font-size: 1.5rem; }
+            .banner-middle { width: 240px; font-size: 1.8rem; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Visual Layout & Color Palette</h1>
+    <ul>
+        <li><strong>Color Scheme:</strong> Features moody purple and magenta ambient lighting typical of a "creative studio" setup, contrasted by the deep red and dark green banner.</li>
+        <li><strong>Background Scene:</strong> Shows a blurred professional studio with a "HELLO" neon sign and a glowing camera icon, creating a modern tech-savvy atmosphere.</li>
+        <li><strong>3D Elements:</strong> A cardboard box on the right is "bursting" with floating 3D icons like <span class="icon-hint">Ps</span>, <span class="icon-hint">Ai</span>, and <span class="icon-hint">Procreate</span>.</li>
+    </ul>
+
+    <hr>
+
+    <div class="banner-stack">
+        <div class="banner-top">Earn By</div>
+        <div class="banner-middle">GRAFIC</div>
+        <div class="banner-bottom">Desingning</div>
+    </div>
+
+    <hr>
+
+    <h3>Central Imagery</h3>
+    <ul>
+        <li><strong>The Subject:</strong> A smiling man in a green t-shirt is positioned on the left with warm, yellow-toned lighting that makes him "pop."</li>
+        <li><strong>The Pose:</strong> He uses a double-point gesture to connect the creative tools (the box) to the outcome (earning money).</li>
+        <li><strong>The "Magic Box":</strong> Acts as a visual metaphor for a "treasure chest" of digital skills.</li>
+    </ul>
+
+    <h4>Summary</h4>
+    <blockquote>
+        This is a <strong>"Skill-to-Income"</strong> style thumbnail. It combines a relatable human face with recognizable software branding to promise a path to monetization.
+    </blockquote>
+    <div align="right">
+
+<a  href="Projects.html" class="btn" style="display: inline-flex;align-items: center;grid-gap: 8px;padding: 10px 30px;background: transparent;color: white;border: 4px solid purple;border-radius: 10px;text-decoration: none;font-weight: 800;font-size: 38px;box-shadow: purple;overflow: hidden;z-index: 2;">Back </a></div>
+</div>
+
+</body>
+</html>

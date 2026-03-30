@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Location.Saqlain</title>
+    <style>
+        :root {
+            --zoom-level: 6;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+            cursor: zoom-in;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            max-width: 90%;
+            border: 1px solid #333;
+        }
+
+        .zoom-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            transform-origin: center center;
+        }
+
+        /* The Back Button */
+        #backBtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        #backBtn:hover {
+            background: brown;
+            transform: scale(1.05);
+        }
+
+        /* Show button and change cursor when zoomed */
+        .is-zoomed {
+            cursor: zoom-out;
+        }
+
+        .is-zoomed #backBtn {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .is-zoomed img {
+            transform: scale(var(--zoom-level));
+        }
+
+        .hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .is-zoomed .hint {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="zoom-container" id="zoomWrapper">
+        <button id="backBtn">← Back to Full View</button>
+        <img  src="https://image2url.com/r2/default/images/1774849157051-7b7b221e-d72f-46b5-a06e-5153b9a08f6c.png" alt="image" alt="Interactive Map" id="mapImage">
+        <div class="hint">Click to explore</div><div align="right">
+
+<a  href="Home.html" class="btn" style="display: inline-flex;align-items: center;grid-gap: 8px;padding: 10px 30px;background: transparent;color: brown;border-radius: 10px;text-decoration: none;font-weight: 800;font-size: 38px;box-shadow: transparent;overflow: hidden;z-index: 2;">Back </a></div>
+    </div>
+
+    <script>
+        const container = document.getElementById('zoomWrapper');
+        const img = document.getElementById('mapImage');
+        const backBtn = document.getElementById('backBtn');
+
+        // Main Toggle Logic
+        container.addEventListener('click', (e) => {
+            // If we click the back button specifically, handle it separately to avoid double-toggling
+            if (e.target === backBtn) return; 
+
+            const isZoomed = container.classList.toggle('is-zoomed');
+
+            if (isZoomed) {
+                const rect = container.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                img.style.transformOrigin = `${x}% ${y}%`;
+            } else {
+                resetZoom();
+            }
+        });
+
+        // Back Button Specific Logic
+        backBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents the container click from firing
+            resetZoom();
+        });
+
+        function resetZoom() {
+            container.classList.remove('is-zoomed');
+            setTimeout(() => {
+                img.style.transformOrigin = `center center`;
+            }, 600); // Wait for transition to finish
+        }
+    </script>
+
+</body>
+</html>
