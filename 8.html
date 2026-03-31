@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thumbnail Breakdown</title>
+    <title>Thumbnail Breakdown - Optimized</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --royal-blue: #0026e3;
             --vibrant-yellow: #ffde00;
             --white: #ffffff;
+            --bg-dark: #001ba1;
         }
 
         body {
@@ -21,9 +22,10 @@
             display: flex;
             justify-content: center;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Halftone Background Effect */
+        
         body::before {
             content: "";
             position: fixed;
@@ -39,91 +41,114 @@
         }
 
         .container {
+            width: 100%;
             max-width: 900px;
-            padding: 60px 20px;
+            padding: 40px 24px;
+            box-sizing: border-box;
             position: relative;
         }
 
+        
         h1, h2, h3 {
             font-family: 'Archivo Black', sans-serif;
             text-transform: uppercase;
             line-height: 1.1;
             margin-bottom: 20px;
+            word-wrap: break-word;
         }
 
-        /* TOP 10 Style */
-        h1 {
-            font-size: 4rem;
-            color: var(--white);
-            margin-top: 0;
-        }
-
-        /* BUSINESS Style */
-        h2 {
-            font-size: 3.5rem;
-            color: var(--vibrant-yellow);
-            letter-spacing: -2px;
-        }
-
-        /* IDEAS Style */
-        h3 {
-            font-size: 2.5rem;
-            font-style: italic;
-            color: var(--white);
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); color: var(--white); }
+        h2 { font-size: clamp(2rem, 7vw, 3.5rem); color: var(--vibrant-yellow); letter-spacing: -1px; }
+        h3 { font-size: clamp(1.5rem, 5vw, 2.5rem); font-style: italic; opacity: 0.9; }
 
         h4 {
             font-family: 'Archivo Black', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--vibrant-yellow);
             border-bottom: 3px solid var(--vibrant-yellow);
             display: inline-block;
-            margin-top: 40px;
+            margin-top: 30px;
+            padding-bottom: 5px;
         }
 
         ul {
             list-style: none;
             padding: 0;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         li {
-            margin-bottom: 18px;
+            margin-bottom: 24px; 
             font-size: 1.1rem;
             line-height: 1.6;
-            max-width: 700px;
         }
 
         li strong {
             color: var(--vibrant-yellow);
             display: block;
             font-size: 1.2rem;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
         hr {
             border: 0;
             height: 1px;
             background: rgba(255, 255, 255, 0.2);
-            margin: 50px 0;
+            margin: 40px 0;
         }
 
         blockquote {
             background: rgba(0, 0, 0, 0.2);
             border-left: 6px solid var(--vibrant-yellow);
             margin: 0;
-            padding: 30px;
-            font-size: 1.3rem;
+            padding: 20px;
+            font-size: 1.1rem;
             font-weight: 700;
             border-radius: 0 10px 10px 0;
+            line-height: 1.4;
         }
 
+        
+        .footer-nav {
+            margin-top: 50px;
+            text-align: right;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            padding: 12px 32px;
+            background: var(--vibrant-yellow);
+            color: var(--royal-blue) !important;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.5rem;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:active {
+            transform: scale(0.95); 
+        }
+
+        
         @media (max-width: 768px) {
-            body::before { width: 15%; }
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2.2rem; }
+            body::before { 
+                width: 100%; 
+                height: 150px; 
+                clip-path: none;
+                position: absolute;
+                opacity: 0.3; 
+            }
+            .container { padding: 30px 20px; }
+            blockquote { font-size: 1rem; }
+            .footer-nav { text-align: center; } 
+            .btn { width: 100%; box-sizing: border-box; } 
         }
     </style>
 </head>
@@ -132,35 +157,36 @@
 <div class="container">
     <h1>Visual Layout & Color Palette</h1>
     <ul>
-        <li><strong>Color Scheme:</strong> The image uses a bold, primary color palette of royal blue and vibrant yellow. This combination is a classic "power pairing" often used to convey trust, energy, and clarity.</li>
-        <li><strong>Split Background:</strong> The background is divided vertically. The left side is a solid, deep blue field, while the right side features a bright yellow backdrop with a stylized, halftone dot pattern and "paint splatter" effects.</li>
+        <li><strong>Color Scheme:</strong> The image uses a bold, primary color palette of royal blue and vibrant yellow. This combination is a classic "power pairing" used for trust and energy.</li>
+        <li><strong>Split Background:</strong> The background features a deep blue field juxtaposed against a yellow halftone pattern with stylized splatter effects.</li>
     </ul>
 
     <hr>
 
     <h2>Typography</h2>
     <ul>
-        <li><strong>The Hook:</strong> The text "TOP 10" is rendered in a large, white, sans-serif block font to establish immediate authority.</li>
-        <li><strong>The Subject:</strong> The word "BUSINESS" is the most prominent element, scaled horizontally in bright yellow to ensure it is the first thing a viewer reads.</li>
-        <li><strong>The Context:</strong> The word "IDEAS" is written in a white, italicized font, adding a sense of movement and variety to the design.</li>
+        <li><strong>The Hook:</strong> "TOP 10" is rendered in a large, white block font to establish immediate authority.</li>
+        <li><strong>The Subject:</strong> "BUSINESS" is the focal point, scaled horizontally in yellow for maximum visibility.</li>
+        <li><strong>The Context:</strong> "IDEAS" uses a white, italicized font to add movement and variety.</li>
     </ul>
 
     <hr>
 
     <h3>Central Imagery</h3>
     <ul>
-        <li><strong>The Subject:</strong> An Asian woman sits comfortably in a modern, beige armchair, wearing a sharp blue business suit that creates a monochromatic harmony with the branding.</li>
-        <li><strong>The Pose:</strong> She is holding a laptop and gesturing toward the text, effectively guiding the viewer's eye from her face back to the main value proposition.</li>
-        <li><strong>Vibe:</strong> Her expression is friendly and confident, aiming to build a quick rapport with the audience.</li>
+        <li><strong>The Subject:</strong> An Asian woman in a sharp blue business suit creates monochromatic harmony with the branding.</li>
+        <li><strong>The Pose:</strong> Gesturing toward the text, she guides the viewer’s eye back to the main value proposition.</li>
+        <li><strong>Vibe:</strong> Her confident, friendly expression builds a quick rapport with the audience.</li>
     </ul>
 
     <h4>Summary</h4>
     <blockquote>
         This is a classic "Listicle" thumbnail. It uses clear, bold text and a human face to drive clicks by promising high-value, organized information.
-    </blockquote><br><br>
-    <div align="right">
+    </blockquote>
 
-<a  href="Projects.html" class="btn" style="display: inline-flex;align-items: center;grid-gap: 8px;padding: 10px 30px;background: transparent;color: blue;border: 4px solid blue;border-radius: 10px;text-decoration: none;font-weight: 800;font-size: 38px;box-shadow: blue;overflow: hidden;z-index: 2;">Back </a></div>
+    <div class="footer-nav">
+        <a href="Projects.html" class="btn">BACK</a>
+    </div>
 </div>
 
 </body>
