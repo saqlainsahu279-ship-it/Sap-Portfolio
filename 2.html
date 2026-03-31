@@ -12,28 +12,33 @@
             --spot-red: #ff0000;
             --tape-gray: #cccccc;
             --bg-noise: #1a1a1a;
+            
+            --fs-h1: clamp(1.8rem, 5vw, 2.5rem);
+            --fs-entry: clamp(1.2rem, 4vw, 2.5rem);
+            --fs-khan: clamp(2rem, 8vw, 3.5rem);
         }
 
         body {
             background-color: var(--bg-noise);
-            /* Static/Noise Texture Emulation */
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
+            overflow-x: hidden; 
         }
 
         .container {
+            width: 90%;
             max-width: 900px;
-            padding: 60px 20px;
+            padding: 40px 10px;
             position: relative;
             z-index: 1;
         }
 
-        /* The Spotlight Beams */
+        
         .spotlight-overlay {
             position: fixed;
             top: 0;
@@ -41,13 +46,12 @@
             width: 100%;
             height: 100%;
             display: flex;
-            justify-content: space-around;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.4; 
         }
 
         .beam {
-            width: 25%;
+            flex: 1;
             height: 100%;
             clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
         }
@@ -55,33 +59,34 @@
         .cyan { background: var(--spot-cyan); }
         .red { background: var(--spot-red); }
 
-        /* Duct Tape Labels */
+        
         .tape {
             position: absolute;
             background: var(--tape-gray);
             color: #333;
-            padding: 5px 15px;
+            padding: 5px 12px;
             font-weight: bold;
             text-transform: uppercase;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            white-space: nowrap;
         }
-        .tape-left { top: 100px; left: -30px; transform: rotate(-15deg); }
-        .tape-right { top: 400px; right: -30px; transform: rotate(10deg); }
+        .tape-left { top: 20px; left: -10px; transform: rotate(-10deg); }
+        .tape-right { top: 150px; right: -10px; transform: rotate(5deg); }
 
         h1 {
             font-family: 'Archivo Black', sans-serif;
-            font-size: 2.5rem;
+            font-size: var(--fs-h1);
             text-transform: uppercase;
             border-bottom: 4px solid var(--spot-cyan);
             display: inline-block;
             margin-bottom: 30px;
+            line-height: 1.2;
         }
 
-        /* THE TEXT BAR (Concrete/Paper effect) */
         .text-bar {
             background: linear-gradient(90deg, #999, #eee, #999);
-            padding: 20px;
+            padding: clamp(15px, 4vw, 30px);
             text-align: center;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             margin: 40px 0;
@@ -91,43 +96,74 @@
         .text-bar .entry {
             font-family: 'Archivo Black', sans-serif;
             color: #000;
-            font-size: 2.5rem;
+            font-size: var(--fs-entry);
             display: block;
         }
 
         .text-bar .khan {
             font-family: 'Crimson Text', serif;
             color: var(--spot-red);
-            font-size: 3.5rem;
+            font-size: var(--fs-khan);
             font-style: italic;
             text-transform: uppercase;
-            margin-top: -10px;
+            margin-top: -5px;
             display: block;
         }
 
         ul { list-style: none; padding: 0; }
         li {
-            background: rgba(0, 0, 0, 0.6);
-            margin-bottom: 15px;
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            margin-bottom: 12px;
+            padding: 15px;
             border-left: 5px solid var(--spot-red);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
         li strong { color: var(--spot-yellow); text-transform: uppercase; }
 
         blockquote {
             background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-style: italic;
+            margin: 30px 0;
         }
 
-        @media (max-width: 768px) {
-            .text-bar .entry { font-size: 1.5rem; }
-            .text-bar .khan { font-size: 2.2rem; }
-            .spotlight-overlay { opacity: 0.3; }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            min-height: 48px; 
+            padding: 10px 25px;
+            background: #ffffff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+        .btn:active { transform: scale(0.95); }
+
+        
+        @media (min-width: 1024px) {
+            .container { padding: 60px 20px; }
+            .spotlight-overlay { opacity: 0.6; }
+            .tape { font-size: 1rem; padding: 5px 15px; }
+            .tape-left { left: -40px; }
+            .tape-right { right: -40px; }
         }
     </style>
 </head>
@@ -140,33 +176,34 @@
     </div>
 
     <div class="container">
-        <div class="tape tape-left">2026</div>
-        <div class="tape tape-right">KING'S</div>
+        <div class="tape tape-left">EST. 2026</div>
+        <div class="tape tape-right">KING'S ERA</div>
 
         <h1>Visual Layout & Color Palette</h1>
         <ul>
-            <li><strong>Color Scheme:</strong> Three vertical spotlights in yellow, cyan, and red sit atop a grayscale "noise" background for a cinematic feel.</li>
-            <li><strong>Background Detail:</strong> A blurred crowd in the center panel adds to the theme of public fame and following.</li>
-            <li><strong>Accents:</strong> Gray duct-tape labels provide an "underground report" or scrapbook aesthetic.</li>
+            <li><strong>Color Scheme:</strong> Vertical spotlights atop a grayscale background.</li>
+            <li><strong>Atmosphere:</strong> Blurred crowd elements for a public fame aesthetic.</li>
+            <li><strong>Accents:</strong> Duct-tape labels for an underground report feel.</li>
         </ul>
 
         <div class="text-bar">
             <span class="entry">THE ENTRY OF</span>
-            <span class="khan">NEW KHAN'S</span>
+            <span class="khan">NEW KHANS</span>
         </div>
 
         <h3>Central Imagery</h3>
         <ul>
-            <li><strong>The Legacy:</strong> Shah Rukh Khan is shown in grayscale, representing the established "King" of the previous era.</li>
-            <li><strong>The Future:</strong> Two younger figures represent the "New Era," placed within the colored spotlights to show their arrival.</li>
+            <li><strong>The Legacy:</strong> Grayscale imagery representing the established "King".</li>
+            <li><strong>The Future:</strong> Colored spotlights signaling the arrival of the "New Era".</li>
         </ul>
 
         <blockquote>
-            This is a <strong>"Legacy vs. New Era"</strong> style thumbnail. It uses high-contrast color blocking and iconic celebrity imagery to drive debate and engagement.
+            A high-contrast <strong>"Legacy vs. New Era"</strong> design built for engagement across all devices.
         </blockquote>
-        <div align="right">
 
-<a  href="Projects.html" class="btn" style="display: inline-flex;align-items: center;grid-gap: 8px;padding: 10px 30px;background: transparent;color: white;border: 4px solid black;border-radius: 10px;text-decoration: none;font-weight: 800;font-size: 38px;box-shadow: blue;overflow: hidden;z-index: 2;">Back </a></div>
+        <div class="footer-nav">
+            <a href="Projects.html" class="btn">BACK</a>
+        </div>
     </div>
 
 </body>
