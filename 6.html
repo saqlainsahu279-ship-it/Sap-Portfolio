@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universe Amazing Facts | Thumbnail Layout</title>
+    <title>Universe Amazing Facts | Responsive Layout</title>
     <style>
-        /* --- CSS STYLES --- */
+        
         body {
-            /* Starry Space Background */
             background-color: #050505;
             background-image: 
                 radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -17,93 +16,132 @@
             color: #ffffff;
             font-family: 'Arial Black', Gadget, sans-serif;
             margin: 0;
-            padding: 50px;
+            padding: 20px; 
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .content-wrapper {
+            width: 100%;
             max-width: 900px;
             text-align: center;
             position: relative;
         }
 
-        /* Massive White Outlined Header: UNIVERSE */
+        
         h1 {
-            font-size: 5rem;
-            margin: 0;
+            font-size: clamp(2.5rem, 10vw, 5rem); 
+            margin: 20px 0 10px 0;
             text-transform: uppercase;
-            color: black; /* Fill */
-            -webkit-text-stroke: 2px white; /* Outline */
+            color: black;
+            -webkit-text-stroke: 1.5px white;
             letter-spacing: 5px;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         }
 
-        /* Sub-headers with tilt and color */
         .text-group {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 20px;
             align-items: center;
-            margin: 40px 0;
+            margin: 20px 0 40px 0;
             width: 100%;
         }
 
-        h2.amazing {
-            font-size: 3rem;
-            color: #1a4d2e; /* Dark Green */
+        h2 {
+            font-size: clamp(1.5rem, 6vw, 3rem);
             text-transform: uppercase;
-            transform: rotate(-10deg);
-            -webkit-text-stroke: 1.5px #000;
+            -webkit-text-stroke: 1px #000;
             text-shadow: 2px 2px 0px #000;
+            margin: 0;
+        }
+
+        h2.amazing {
+            color: #1a4d2e;
+            transform: rotate(-10deg);
         }
 
         h2.facts {
-            font-size: 3rem;
-            color: #ff8c00; /* Bright Orange */
-            text-transform: uppercase;
+            color: #ff8c00;
             transform: rotate(10deg);
-            -webkit-text-stroke: 1.5px #000;
-            text-shadow: 2px 2px 0px #000;
         }
 
-        /* The Section Content */
+        
         section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px); /* Modern glass effect */
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 25px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             text-align: left;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
+            margin-bottom: 40px;
         }
 
         h3 {
-            color: #00d4ff; /* Space Blue */
+            color: #00d4ff;
             text-transform: uppercase;
             border-left: 5px solid #ff8c00;
             padding-left: 15px;
-            margin-top: 25px;
+            margin-top: 10px;
+            font-size: 1.2rem;
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #e0e0e0;
         }
 
-        b {
-            color: #ff8c00;
-        }
+        b { color: #ff8c00; }
 
         hr {
             border: 0;
             height: 1px;
-            background: linear-gradient(to right, transparent, #555, transparent);
-            margin: 40px 0;
+            background: linear-gradient(to right, transparent, #444, transparent);
+            margin: 30px 0;
         }
 
+       
+        .nav-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: transparent;
+            color: white;
+            border: 3px solid white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 24px; 
+            transition: all 0.3s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+            background: rgba(255,255,255,0.1);
+        }
+
+        
+        @media (min-width: 768px) {
+            body { padding: 50px; }
+            h1 { -webkit-text-stroke: 2px white; }
+            .text-group { gap: 60px; }
+            .btn { font-size: 32px; }
+            .btn:hover {
+                background: white;
+                color: black;
+            }
+        }
     </style>
 </head>
 <body>
@@ -118,28 +156,24 @@
 
         <section>
             <h3>Visual Composition</h3>
-            <p>This thumbnail follows a classic "edutainment" style, using <b>cosmic imagery</b> and a quizzical human element to spark curiosity about science and the world.</p>
+            <p>This thumbnail follows a classic <b>edutainment</b> style, using cosmic imagery to spark curiosity about science.</p>
 
-            <p>The focal point is a large image of <b>Planet Earth</b> set against a vast, dark starry space background that adds a sense of scale.</p>
+            <p>The focal point is <b>Planet Earth</b> set against a vast space background to provide a sense of scale.</p>
 
             <hr>
 
-            <h3>Text and Typography</h3>
-            <p>The text uses three distinct styles to create a visual triangle that frames the subject:</p>
+            <h3>Typography</h3>
             <ul>
-                <li><b>UNIVERSE:</b> Massive, white outlined block letters for maximum visibility.</li>
-                <li><b>AMAZING:</b> Tilted upward with a dark green-to-blue gradient fill.</li>
-                <li><b>FACTS:</b> Tilted downward in bold orange to provide a warm contrast.</li>
+                <li><b>UNIVERSE:</b> Massive, white outlined block letters.</li>
+                <li><b>AMAZING:</b> Tilted green-to-blue gradient style.</li>
+                <li><b>FACTS:</b> Bold orange for high contrast.</li>
             </ul>
-
-            <hr>
-
-            <h3>Atmosphere and Style</h3>
-            <p>The combination of a <b>starry background</b> and an inquisitive subject gesture suggests a "mind-blowing" or "did you know?" style of content commonly found on trivia channels.</p>
         </section>
-    </div><br>
-<div align="right" style="margin-left: 750px">
 
-<a  href="Projects.html" class="btn" style="display: inline-flex;align-items: center;grid-gap: 8px;padding: 10px 30px;background: transparent;color: white;border: 4px solid white;border-radius: 10px;text-decoration: none;font-weight: 800;font-size: 38px;box-shadow: white;overflow: hidden;z-index: 2;">Back </a></div>
+        <div class="nav-container">
+            <a href="Projects.html" class="btn">Back</a>
+        </div>
+    </div>
+
 </body>
 </html>
