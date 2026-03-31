@@ -2,29 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     :root {
         --primary-red: #d32f2f;
         --accent-gold: #ffc107;
-        --dark-bg: #121212;
-        --card-bg: #1e1e1e;
+        --dark-bg: #0a0a0a;
+        --card-bg: #1a1a1a;
         --text-color: #e0e0e0;
     }
 
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         background-color: var(--dark-bg);
         color: var(--text-color);
         line-height: 1.6;
         margin: 0;
-        padding: 20px;
+        
+        padding: 15px; 
     }
 
     .container {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
-        border-left: 5px solid var(--primary-red);
-        padding-left: 20px;
+        
+        border-left: 3px solid var(--primary-red);
+        padding-left: 15px;
     }
 
     h1 {
@@ -33,29 +36,34 @@
         letter-spacing: 2px;
         border-bottom: 2px solid var(--primary-red);
         padding-bottom: 10px;
-        font-size: 2.5rem;
+       
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        margin-top: 10px;
     }
 
     h2 {
         color: var(--accent-gold);
-        margin-top: 40px;
+        margin-top: 30px;
         text-transform: uppercase;
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
     }
 
     h3 {
         color: white;
         border-left: 3px solid var(--primary-red);
         padding-left: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
     }
 
+   
     p {
         margin-bottom: 20px;
         background: var(--card-bg);
-        padding: 15px;
-        border-radius: 4px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        padding: 18px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        font-size: 1rem;
     }
 
     strong {
@@ -66,7 +74,54 @@
         border: 0;
         height: 1px;
         background: linear-gradient(to right, var(--primary-red), transparent);
-        margin: 40px 0;
+        margin: 30px 0;
+    }
+
+    
+    .btn-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: transparent;
+        color: white;
+        border: 3px solid var(--primary-red);
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 800;
+        
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    
+    @media (min-width: 768px) {
+        body {
+            padding: 40px;
+        }
+        .container {
+            border-left: 6px solid var(--primary-red);
+            padding-left: 30px;
+        }
+        .btn:hover {
+            background: var(--primary-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+        }
+    }
+
+    
+    @media (hover: none) {
+        .btn:active {
+            background: rgba(211, 47, 47, 0.2);
+            transform: scale(0.98);
+        }
     }
 </style>
 <title>Trade War 2 Analysis</title>
@@ -77,11 +132,14 @@
     <h1>Analysis: Trade War 2 Visuals</h1>
 
     <h2>Primary Subjects</h2>
-    <h3>Donald Trump (USA)</h3>
-    <p>Positioned on the left, his expression is stoic and confrontational. He serves as the primary visual anchor for American protectionist policy.</p>
+    
+    <div class="subject-group">
+        <h3>Donald Trump (USA)</h3>
+        <p>Positioned on the left, his expression is stoic and confrontational. He serves as the primary visual anchor for American protectionist policy.</p>
 
-    <h3>Xi Jinping (China)</h3>
-    <p>Positioned on the right, gesturing with a raised finger. This depicts a firm, communicative, and unyielding stance from the Chinese leadership.</p>
+        <h3>Xi Jinping (China)</h3>
+        <p>Positioned on the right, gesturing with a raised finger. This depicts a firm, communicative, and unyielding stance from the Chinese leadership.</p>
+    </div>
 
     <hr>
 
@@ -106,9 +164,11 @@
     <h2>Branding</h2>
     <h3>Typography: "TRADE WAR 2"</h3>
     <p>The use of a bold, sans-serif font with 3D depth mirrors movie poster design, framing the geopolitical event as a dramatic, high-stakes sequel to previous 2018 disputes.</p>
-</div>
-<div align="right">
 
-<a  href="Projects.html" class="btn" style="display: inline-flex;align-items: center;grid-gap: 8px;padding: 10px 30px;background: transparent;color:white;border: 4px solid darkred;border-radius: 10px;text-decoration: none;font-weight: 800;font-size: 38px;box-shadow: black;overflow: hidden;z-index: 2;">Back </a></div>
+    <div class="btn-container">
+        <a href="Projects.html" class="btn">Back</a>
+    </div>
+</div>
+
 </body>
 </html>
